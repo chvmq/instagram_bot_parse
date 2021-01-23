@@ -1,6 +1,11 @@
 from time import sleep
 
 
+class SomeAccount(SearchPage):
+    def __init__(self, browser):
+        self.browser = browser
+    
+    
 class SearchPage:
     def __init__(self, browser):
         self.browser = browser
