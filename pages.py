@@ -1,12 +1,7 @@
 from time import sleep
-
-
-class SomeAccount(SearchPage):
-    def __init__(self, browser):
-        self.browser = browser
+ 
     
-    
-class SearchPage:
+class SomeHashtag:
     def __init__(self, browser):
         self.browser = browser
 
@@ -28,6 +23,14 @@ class SearchPage:
         sleep(2)
 
 
+class SomeAccount(SomeHashtag):
+    def click_on_post(self):
+        post = self.browser.find_element_by_css_selector('#react-root > section > main > div > div._2z6nI > article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > a > div > div._9AhH0')
+        post.click()
+        sleep(2)
+
+
+
 class HubPage:
     def __init__(self, browser):
         self.browser = browser
@@ -40,7 +43,12 @@ class HubPage:
             "a.yCE8d:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
         submit_button.click()
 
-        return SearchPage(self.browser)
+        if str(request).startswith('#'):
+            return SomeHashtag(self.browser)
+
+        return SomeAccount(self.browser)
+    
+        
 
 
 class LoginPage:
