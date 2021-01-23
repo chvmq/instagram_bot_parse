@@ -4,6 +4,8 @@ from selenium import webdriver
 def press_likes(login, password, request):
 
     browser = webdriver.Firefox(executable_path=r'/usr/bin/geckodriver')
+    #ЗДЕСЬ СЫРОЙ СТРОКОЙ НУЖНО УКАЗАТЬ ПУТЬ К geckodriver
+
     browser.implicitly_wait(5)
 
     home_page = StartPage(browser)
