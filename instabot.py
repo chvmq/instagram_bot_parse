@@ -1,5 +1,7 @@
 from pages import StartPage
 from selenium import webdriver
+import os
+
 
 def press_likes(login, password, request):
 
@@ -21,7 +23,12 @@ def press_likes(login, password, request):
         search_page.press_like()
         search_page.next_post()
 
-#browser.close()
+# browser.close()
+
+login = os.getenv('login')
+password = os.getenv('password')
+request = os.getenv('request')
 
 
-press_likes('YOUR LOGIN HERE', 'YOUR PASSWORD HERE', 'YOUR REQUEST HERE')
+# press_likes('YOUR LOGIN HERE', 'YOUR PASSWORD HERE', 'YOUR REQUEST HERE')
+press_likes(login, password, request)
